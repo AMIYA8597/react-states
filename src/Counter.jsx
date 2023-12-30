@@ -5,13 +5,15 @@ export default function Counter() {
     // let arr = useState(0);
     // console.log(arr);
 
-    let [stateVariable, setStateVariable] = useState(10);
+    // let [stateVariable, setStateVariable] = useState(10);
     let [count, setCount] = useState(0)
 
     let inCreaseCount = () => {
         // count=count +1;
-        setCount(count +1);
-        console.log(count);
+        // setCount(count +1);
+        // console.log(`inside inCount, count = ${count}`);
+        // setCount((prevCount)=> prevCount+1 )
+        setCount(25)
 
     }
 

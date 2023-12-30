@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <h1>
-        states in eract
+        states in react
       </h1>
        <Counter />
        <LikeButton />
