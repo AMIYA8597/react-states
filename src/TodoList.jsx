@@ -28,9 +28,48 @@ export default function TodoList() {
     }
 
     let upperCaseAll =() => {
-        setNewTodo(newTodo.toUpperCase());
-        todos=todos.map((item)=> {return {...item , task: item.task.toUpperCase()}})
-        setTodos([...todos])
+        // setNewTodo(newTodo.toUpperCase());
+        // todos=todos.map((item)=> {return {...item , task: item.task.toUpperCase()}})
+        // setTodos([...todos])
+
+        setTodos( (prevTodos) => 
+            prevTodos.map((todo) => {
+                // todo.task = todo.task.toUpperCase();
+                return {
+                    ...todo,
+                    task: todo.task.toUpperCase(),
+                };
+            })
+        )
+
+    }
+
+    let upperCaseOne = (selectedId) => {
+        // if(!newTodo){
+        //     alert('Please enter a word to make it Uppercase')
+        //     }else{
+        //         let singleWord = newTodo.split(" ");
+        //         setNewTodo(singleWord[0].toUpperCase() +" "+ singleWord.slice(1).join(" "))
+        //         }
+
+        // setNewTodo(newTodo.toUpperCase());
+        // todos=todos.map((item)=> {return {...item , task: item.task.toUpperCase()}})
+        // setTodos([...todos])
+
+
+        setTodos( (prevTodos) => 
+            prevTodos.map((todo) => {
+                // todo.task = todo.task.toUpperCase();
+                if (todo.id === selectedId ) {
+                return {
+                    ...todo,
+                    task: todo.task.toUpperCase(),
+                };
+            } else {
+                return todo;
+            }
+            })
+        )
 
     }
     
@@ -51,6 +90,7 @@ export default function TodoList() {
             <span> {todo.task} </span>
             &nbsp; &nbsp;
             <button onClick={ () => deleteTodo(todo.id)}> Delete</button>
+            <button onClick={ () => upperCaseOne(todo.id)}> UpperCaseOne</button>
             </li>
             ))}
           </ul>
