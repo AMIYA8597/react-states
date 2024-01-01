@@ -4,6 +4,7 @@
 import './App.css'
 import Counter from './Counter';
 import LikeButton from './LikeButton';
+import TodoList from './TodoList';
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -14,8 +15,9 @@ function App() {
       <h1>
         states in react
       </h1>
-       <Counter />
-       <LikeButton />
+       {/* <Counter />
+       <LikeButton /> */}
+       <TodoList />
     </>
   )
 }
