@@ -2,13 +2,13 @@ import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
 export default function TodoList() {
-    let [todos, setTodos] = useState([{task: "sample-task", id:uuidv4()}]);
+    let [todos, setTodos] = useState([{task: "sample-task", id:uuidv4(), isDone: false}]);
     let [newTodo, setNewTodo] = useState("");
 
     let addNewTask = () => {
         // setTodos([...todos, {task: newTodo, id:uuidv4()}]);
         setTodos((prevTodos) => {
-            return [...prevTodos, { task: newTodo, id : uuidv4()}];
+            return [...prevTodos, { task: newTodo, id : uuidv4(), isDone:false}];
 
         });
         setNewTodo("")
@@ -27,7 +27,7 @@ export default function TodoList() {
        setTodos( (prevTodos) => todos.filter((prevTodos) => prevTodos.id != id));
     }
 
-    let upperCaseAll =() => {
+    let markAsAllDone =() => {
         // setNewTodo(newTodo.toUpperCase());
         // todos=todos.map((item)=> {return {...item , task: item.task.toUpperCase()}})
         // setTodos([...todos])
@@ -37,14 +37,15 @@ export default function TodoList() {
                 // todo.task = todo.task.toUpperCase();
                 return {
                     ...todo,
-                    task: todo.task.toUpperCase(),
+                    // task: todo.task.toUpperCase(),
+                    isDone: true,
                 };
             })
         )
 
     }
 
-    let upperCaseOne = (selectedId) => {
+    let markAsDone = (selectedId) => {
         // if(!newTodo){
         //     alert('Please enter a word to make it Uppercase')
         //     }else{
@@ -63,7 +64,8 @@ export default function TodoList() {
                 if (todo.id === selectedId ) {
                 return {
                     ...todo,
-                    task: todo.task.toUpperCase(),
+                    // task: todo.task.toUpperCase(),
+                    isDone:true,
                 };
             } else {
                 return todo;
@@ -87,15 +89,15 @@ export default function TodoList() {
           <ul>
             {todos.map((todo) =>(
             <li key={todo.id}> 
-            <span> {todo.task} </span>
+            <span style={todo.isDone ? {textDecorationLine: "line-through"}: {} }> {todo.task} </span>
             &nbsp; &nbsp;
             <button onClick={ () => deleteTodo(todo.id)}> Delete</button>
-            <button onClick={ () => upperCaseOne(todo.id)}> UpperCaseOne</button>
+            <button onClick={ () => markAsDone(todo.id)}> mark As Done</button>
             </li>
             ))}
           </ul>
 
-          <button onClick={upperCaseAll}> upperCase All</button>
+          <button onClick={markAsAllDone}> mark All as Done</button>
         </div>
     );    
 }
