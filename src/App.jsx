@@ -5,6 +5,7 @@ import './App.css'
 import Counter from './Counter';
 import LikeButton from './LikeButton';
 import TodoList from './TodoList';
+import Lottery from './Lottery';
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -17,7 +18,9 @@ function App() {
       </h1>
        {/* <Counter />
        <LikeButton /> */}
-       <TodoList />
+       {/* <TodoList /> */}
+       <Lottery />
+
     </>
   )
 }
