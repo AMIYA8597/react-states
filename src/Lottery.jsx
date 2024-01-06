@@ -17,7 +17,6 @@ export default function Lottery() {
     setTicket(generateTicket(3))
   }
 
-
   return (
     <div>
       <h1>Lottery Game</h1>
@@ -28,7 +27,7 @@ export default function Lottery() {
       </div>
       <br />
       <button onClick={buyTicket}>Buy New Ticket</button>
-      <h3>{isWinning && "Congractulation , You Won the currect number!"}</h3>
+      <h3>{isWinning && "Congractulation , You Won the correct number! "}</h3>
     </div>
   );
 }

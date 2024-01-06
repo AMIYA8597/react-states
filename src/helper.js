@@ -4,6 +4,7 @@ function generateTicket(n) {
         arr[i] = Math.floor(Math.random() * 10)
         // arr[i] = `${Math.floor(100 + Math.random()
         //     * (999 - 100 + 1))}`; // random number
+        
             }
             return arr;
 
