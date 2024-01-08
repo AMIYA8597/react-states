@@ -17,6 +17,7 @@ export default function Lottery() {
     setTicket(generateTicket(3))
   }
 
+  
   return (
     <div>
       <h1>Lottery Game</h1>
